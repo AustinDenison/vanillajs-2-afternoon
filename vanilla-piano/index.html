@@ -165,6 +165,18 @@
 </body>
 
 <script>
+    window.addEventListener('keypress', function(e){
+        const audio = document.querySelector(`audio[data-key='${e.keyCode}']`)
+        console.log(audio)
+        if(!audio){
+            return 
+        }
+        const polygon = document.querySelector(`polygon[data-key='${e.keyCode}']`)
+        audio.currentTime = 0
+        polygon.classList('pressed')
+        audio.play()
+        window.setTimeout(polygon.classList.remove('pressed'), 30)
+    })
 </script>
 
 </html>
